@@ -325,4 +325,23 @@ public class Deck : MonoBehaviour {
 
     }
 
+    // Shuffle the Cards in Deck.cards
+    static public void Shuffle(ref List<Card> oCards)
+    {   
+        //temporary List to hold the new shuffle order
+        List<Card> tCards = new List<Card>();
+
+        int ndx; 
+
+        tCards = new List<Card>();
+        while (oCards.Count > 0)
+        {
+            ndx = Random.Range(0, oCards.Count);
+            tCards.Add(oCards[ndx]);
+            oCards.RemoveAt(ndx);
+        }
+        // Replace the original List with the temporary List
+        oCards = tCards;
+    }
+
 }
